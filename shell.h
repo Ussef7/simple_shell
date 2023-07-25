@@ -50,8 +50,9 @@ typedef struct liststr
 } list_t;
 
 /**
-
-
+ * struct passinfo - contains pseudo-arguements to pass into a function,
+ * allowing uniform prototype for function pointer structs
+ *
  * @env_changed: on if environ was changed
  * @status: the return status of the last exec'd command
  * @cmd_buf: address of pointer to cmd_buf, on if chaining
@@ -72,7 +73,7 @@ typedef struct liststr
  * @environ: custom modified copy of environ from LL env
  * @history: the history node
  * @alias: the alias node
-
+ *
  */
 typedef struct passinfo
 {
@@ -99,12 +100,12 @@ typedef struct passinfo
 
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+{NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, \
 		0, 0, 0}
 
 
 /**
- * struct builtin - Used to be containing a builtin string and a related function.
+ * struct builtin - contain a builtin string and a related function.
  * @type: The builtin command.
  * @func: The function.
  */
